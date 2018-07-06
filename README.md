@@ -21,8 +21,19 @@ A minimal node module providing utility methods to get data modules from definit
 
 // generate only one snippet
   var dataFirstComponents = generatorsnippets.modules[0];
-  var dataComponentsArray = generatorsnippets.generateSnippet(dataFirstComponents);
-  console.log('html', html, 'escaped', escaped, 'unescaped', unescaped);
+  var snippetFirst = generatorsnippets.generateSnippet(dataFirstComponents);
+
+
+// generate snippet for vscode
+  generateSnippets.editorTarget = 'vscode';
+  var snippetFirstVscode = generatorsnippets.generateSnippet(dataFirstComponents);
+
+  // generate snippet for sublimeText
+  generateSnippets.editorTarget = 'sublimetext';
+  var snippetFirstSublimeText = generatorsnippets.generateSnippet(dataFirstComponents);
+
+
+  console.log('snippetFirstVscode', snippetFirstVscode, 'snippetFirstSublimeText', snippetFirstSublimeText);
 ```
 
 ## Tests
