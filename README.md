@@ -1,4 +1,4 @@
-Scapegoat
+generatorsnippets
 =========
 
 A minimal node module providing utility methods to get data modules from definitions in modules.isml
