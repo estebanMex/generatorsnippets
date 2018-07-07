@@ -17,7 +17,7 @@ function GeneratorSnippets(str, editorTarget) {
 
   this.prepareTemplatesSnippets();
   this.prepareData();
-}
+};
 
 GeneratorSnippets.prototype.prepareTemplatesSnippets = function () {
   this.templatesSnippets.vscode = function name() {
@@ -68,7 +68,7 @@ var tpl = `
       return tpl;
     }
   }();
-}
+};
 
 GeneratorSnippets.prototype.prepareData = function () {
   var regexQutes = /"/g;
@@ -97,7 +97,7 @@ GeneratorSnippets.prototype.prepareData = function () {
 GeneratorSnippets.prototype.generateSnippet = function (module) {
   var templateType = this.templatesSnippets[this.editorTarget] ? this.templatesSnippets[this.editorTarget] : () => { };
   return templateType(module)
-}
+};
 
 GeneratorSnippets.prototype.generateAllSnippets = function (module) {
   var output;
@@ -105,6 +105,6 @@ GeneratorSnippets.prototype.generateAllSnippets = function (module) {
   output = this.modules.map((curr) => this.generateSnippet(curr))
 
   return output;
-}
+};
 
 module.exports = GeneratorSnippets;
