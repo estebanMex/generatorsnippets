@@ -27,19 +27,19 @@ GeneratorSnippets.prototype.prepareTemplatesSnippets = function () {
       var params = [];
 
       for (var y = 0; y < paramsMod.length; y++) {
-        params.push(paramsMod[y] + '="\\$\\{$' + (y + 1) + '\\}"')
+        var count = y + 1;
+        params.push(`"${paramsMod[y]}=` + `\\\"$${count}\\\""`)
       }
-      var snippet = '<is' + nameModule + ' ' + params.join(' ') + '/>';
 
+      var prefix = nameModule;
 
-      var tpl = `{
-      "is${nameModule}": {
-        "prefix": "is${nameModule}",
-        "body": [
-        "${snippet}"
-        ],
-        "description": "is${nameModule}"
-      }`;
+      var paramsToTpl = params.join(', ')
+var tpl = `
+  "is${nameModule}": {
+    "prefix": "${prefix}",
+    "body": ["<is${nameModule}", ${paramsToTpl}, "/>"],
+    "description": "is${nameModule}" 
+  }`;
 
       return tpl;
     }

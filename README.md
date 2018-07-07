@@ -25,11 +25,11 @@ A minimal node module providing utility methods to get data modules from definit
 
 
 // generate snippet for vscode
-  generateSnippets.editorTarget = 'vscode';
+  generatorsnippets.editorTarget = 'vscode';
   var snippetFirstVscode = generatorsnippets.generateSnippet(dataFirstComponents);
 
   // generate snippet for sublimeText
-  generateSnippets.editorTarget = 'sublimetext';
+  generatorsnippets.editorTarget = 'sublimetext';
   var snippetFirstSublimeText = generatorsnippets.generateSnippet(dataFirstComponents);
 
 
