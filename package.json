@@ -1,6 +1,6 @@
 {
   "name": "generatorsnippets",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A small module to generate snippets from files components.isml to snippets for Visual code and sublimeText",
   "main": "index.js",
   "scripts": {
