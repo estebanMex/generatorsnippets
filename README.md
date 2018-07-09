@@ -12,28 +12,24 @@ A minimal node module providing utility methods to get data modules from definit
 ## Usage
 
 ```js
-  var Generatorsnippets =  require('generatorsnippets')
-  // create a instances
-  var generatorsnippets = Generatorsnippets(stringDataFromFileComponents)
+const Generatorsnippets = require('generatorsnippets');
+const modulesFilePath = 'PATH_TO/cartridge/templates/default/util/modules.isml';
 
-  // generate an array with all snippets 
-  var allSnippetsInArray = generatorsnippets.generateAllSnippets();
+// Example 1
+new Generatorsnippets({
+    'modulesFilePath': modulesFilePath,
+    'editorTarget': 'sublimetext',
+    'paths': {
+        'vscode': {
+            outputpath:  process.cwd() + '/snippets/vscode/isml2.json'
+        },
+        'sublimetext': {
+            // Target Directory, one file by snippet to be created
+            outputpath:  process.cwd() + '/snippets/vscode/sublimetext/'
+        }
+    }
+}).writeSnippets();
 
-// generate only one snippet
-  var dataFirstComponents = generatorsnippets.modules[0];
-  var snippetFirst = generatorsnippets.generateSnippet(dataFirstComponents);
-
-
-// generate snippet for vscode
-  generatorsnippets.editorTarget = 'vscode';
-  var snippetFirstVscode = generatorsnippets.generateSnippet(dataFirstComponents);
-
-  // generate snippet for sublimeText
-  generatorsnippets.editorTarget = 'sublimetext';
-  var snippetFirstSublimeText = generatorsnippets.generateSnippet(dataFirstComponents);
-
-
-  console.log('snippetFirstVscode', snippetFirstVscode, 'snippetFirstSublimeText', snippetFirstSublimeText);
 ```
 
 ## Tests

@@ -1,6 +1,6 @@
 {
   "name": "generatorsnippets",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "A small module to generate snippets from files components.isml to snippets for Visual code and sublimeText",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "visualCode",
     "sublimeText"
   ],
-  "author": "RIOS Esteban <esteban.rios@viseo.com>",
+  "author": "RIOS Esteban <esteban2web@gmail.com>",
   "licenses": [
     {
       "type": "MIT",
