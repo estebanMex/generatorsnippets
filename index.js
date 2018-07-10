@@ -193,19 +193,33 @@ GeneratorSnippets.prototype.writeSnippets = function () {
  * @param {string} snippetsString 
  */
 GeneratorSnippets.prototype.writeSnippetFile = function (targetPath, snippetsString) {
-  fs.writeFile(targetPath, snippetsString, function (err) {
-    if (err) throw err;
 
-    let msgSaved = ' saved in next path ';
-    let targetPathLength = targetPath.length;
-    // ceil to avoid as decimal number
-    let nbNeeds = Math.ceil((targetPathLength - msgSaved.length) / 2);
-    let strSide = generateSuiteChars(nbNeeds + 1, '=');
-
-    console.log(strSide + msgSaved.toUpperCase() + strSide);
-    console.log(targetPath);
-    console.log(generateSuiteChars(targetPathLength + 1, '='));
+  fs.open(targetPath, 'a+', (err, fd) => {
+    if (err) {
+      console.log(err)
+      return false;
+    }
+  
+    writeMyData(fd);
   });
+  
+  function writeMyData(fd) {
+    console.log(fd)
+    fs.writeFile(targetPath, snippetsString, function (err) {
+      if (err) throw err;
+  
+      let msgSaved = ' saved in next path ';
+      let targetPathLength = targetPath.length;
+      // ceil to avoid as decimal number
+      let nbNeeds = Math.ceil((targetPathLength - msgSaved.length) / 2);
+      let strSide = generateSuiteChars(nbNeeds + 1, '=');
+  
+      console.log(strSide + msgSaved.toUpperCase() + strSide);
+      console.log(targetPath);
+      console.log(generateSuiteChars(targetPathLength + 1, '='));
+    });
+  }
+
 };
 
 module.exports = GeneratorSnippets;
