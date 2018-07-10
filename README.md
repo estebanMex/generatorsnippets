@@ -25,7 +25,7 @@ new Generatorsnippets({
         },
         'sublimetext': {
             // Target Directory, one file by snippet to be created
-            outputpath:  process.cwd() + '/snippets/vscode/sublimetext/'
+            outputpath:  process.cwd() + '/snippets/sublimetext/'
         }
     }
 }).writeSnippets();
